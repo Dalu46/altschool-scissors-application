@@ -36,14 +36,13 @@ const Login = () => {
   const loginWithGoogle = (e) => {
     e.preventDefault();
 
-    const promise = account.createOAuth2Session(
+   account.createOAuth2Session(
       "google",
       "https://scissors-app-theta.vercel.app/dashboard",
       "https://scissors-app-theta.vercel.app/login",
       ["profile"]
     );
 
-    console.log(promise);
   };
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
