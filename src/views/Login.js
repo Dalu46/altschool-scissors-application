@@ -38,8 +38,8 @@ const Login = () => {
 
     const promise = account.createOAuth2Session(
       "google",
-      "http://localhost:3000/dashboard",
-      "http://localhost:3000/login",
+      "https://scissors-app-theta.vercel.app/dashboard",
+      "https://scissors-app-theta.vercel.app/login",
       ["profile"]
     );
 
