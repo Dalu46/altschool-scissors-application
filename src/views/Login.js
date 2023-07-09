@@ -20,17 +20,17 @@ const Login = () => {
 
     const promise = account.createEmailSession(user.email, user.password);
 
-    promise.then(
-      function (response) {
+    promise
+      .then(function (response) {
         console.log(response);
-        setLoading(false);
         navigate("/dashboard");
-      },
-      function (error) {
-        console.log(error);
-        setError(error); // Failure
-      }
-    );
+      })
+      .catch(function (error) {
+        alert(error);
+      })
+      .finally(function () {
+        setLoading(false);
+      });
   };
 
   const loginWithGoogle = (e) => {

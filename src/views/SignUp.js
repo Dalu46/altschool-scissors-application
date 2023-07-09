@@ -27,16 +27,17 @@ const SignUp = () => {
       user.name
     );
 
-    promise.then(
-      function (response) {
+    promise
+      .then(function (response) {
         console.log(response);
-        setLoading(false);
         navigate("/dashboard");
-      },
-      function (error) {
-        console.log(error);
-      }
-    );
+      })
+      .catch(function (error) {
+        alert(error);
+      })
+      .finally(function () {
+        setLoading(false);
+      });
   };
 
   const loginWithGoogle = (e) => {
@@ -176,8 +177,13 @@ const SignUp = () => {
         </div>
         <p className="text-center font-bold">Or</p>
         <div>
-          <button className="border-2 py-1 px-6 flex gap-5 mx-auto mt-4 w-full justify-center items-center bg-[#F9FBFD]" onClick={(e) => loginWithGoogle(e)}>
-            <p className="text-xl font-bold text-lightBlue">Sign up with Google</p>{" "}
+          <button
+            className="border-2 py-1 px-6 flex gap-5 mx-auto mt-4 w-full justify-center items-center bg-[#F9FBFD]"
+            onClick={(e) => loginWithGoogle(e)}
+          >
+            <p className="text-xl font-bold text-lightBlue">
+              Sign up with Google
+            </p>{" "}
             <img src={google} alt="login with google" />
           </button>
         </div>
