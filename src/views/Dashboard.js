@@ -64,8 +64,8 @@ export default function Dashboard() {
       try {
         if (userDetails) {
           const response = await database.listDocuments(
-            "64a53ec48e4180d1974f", // databaseId
-            "64a571a6a707796b8515",
+            process.env.REACT_APP_DATABASE_ID,
+            process.env.REACT_APP_COLLECTION_ID,
             [Query.equal("user_id", [userDetails.$id])] // query to get only user links
           );
           setLinks(response.documents);
@@ -99,8 +99,8 @@ export default function Dashboard() {
     //remove link from database
     const deleteLink = async () => {
       const promise = database.deleteDocument(
-        "64a53ec48e4180d1974f", // databaseId
-        "64a571a6a707796b8515",
+        process.env.REACT_APP_DATABASE_ID,
+        process.env.REACT_APP_COLLECTION_ID,
         link.$id
       );
       promise.then(
@@ -331,7 +331,7 @@ export default function Dashboard() {
           </main>
         </div>
       ) : (
-        <div className="flex flex-col gap-5 justify-center items-center mt-[45%]">
+        <div className="flex h-[100vh] w-[10vw] justify-center items-center">
           {/* <p className="mt-4 text-xl">Please Login to see profile </p>
           <Link to="/login">
             <span className="bg-lightBlue py-3 px-12 rounded-[12px] cursor-pointer text-white">

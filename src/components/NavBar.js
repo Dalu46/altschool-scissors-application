@@ -173,7 +173,7 @@ const NavBar = () => {
 
       {/* <!-- Mobile menu, show/hide based on menu state. --> */}
       <div
-        className={`sm:hidden bg-gray-900 ${menu ? "block" : "hidden"}`}
+        className={`sm:hidden bg-gray-900 ${menu ? "block " : "hidden"}`}
         id="mobile-menu"
       >
         <div className="space-y-1 px-6 pb-3 pt-2">

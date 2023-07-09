@@ -14,8 +14,8 @@ const ScissorPage = ({ setAddedLink, user }) => {
   //handle backend (appwrite)
   const addLink = (shortenedLink) => {
     const promise = database.createDocument(
-      "64a53ec48e4180d1974f", // databaseId
-      "64a571a6a707796b8515", //collectionId
+      process.env.REACT_APP_DATABASE_ID,
+      process.env.REACT_APP_COLLECTION_ID, //collectionId
       ID.unique(),
       {
         link: shortenedLink,
